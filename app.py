@@ -34,7 +34,7 @@ def flights():
 def flight(flight_id):
 	flight=Flight.query.get(flight_id)
 	if flight is None:
-		return render_template("Error.html",message="No such flights with ID "+str(flight_id))
+		return render_template("Error.html",message=f"No such flights with ID  {flight_id}')
 	passengers=Passenger.query.filter_by(flight_id=flight_id).all()
 	return render_template("Flight.html",flights=flight,passengers=passengers)	
 if __name__=="__main__":
